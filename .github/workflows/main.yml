@@ -1,15 +1,17 @@
 name: arxiv-bot
 
 on:
-  workflow_dispatch:  
   schedule:
-    - cron: '0 */3 * * *'
+    - cron: '0 */3 * * *'  # update every 3 hours（or '0 * * * *' every hour or'*/30 * * * *' every half hour）
+  workflow_dispatch:
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -21,8 +23,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Restore sent cache
+        uses: actions/cache@v3
+        with:
+          path: .cache
+          key: arxiv-sent-${{ github.run_id }}
+          restore-keys: |
+            arxiv-sent-
+
       - name: Run bot
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           python main.py
+
+      - name: Save sent cache
+        uses: actions/cache/save@v3
+        with:
+          path: .cache
+          key: arxiv-sent-${{ github.run_id }}
