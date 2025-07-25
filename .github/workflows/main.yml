@@ -3,7 +3,7 @@ name: arxiv-bot
 on:
   workflow_dispatch:  
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '0 */3 * * *'
 
 jobs:
   run-bot:
