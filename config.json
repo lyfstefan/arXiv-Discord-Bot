@@ -2,22 +2,22 @@
   "queries": [
     {
       "name": "Twisted Bilayer Graphene",
-      "search_query": "ti:%22twisted%20bilayer%20graphene%22",
+      "search_query": "(ti:\"twisted bilayer graphene\" OR abs:\"twisted bilayer graphene\")",
       "max_results": 5
     },
     {
       "name": "Moiré Phonons",
-      "search_query": "abs:%22moire%20phonon%22",
+      "search_query": "(ti:\"moire phonon\" OR abs:\"moire phonon\") AND cat:cond-mat.mes-hall",
       "max_results": 5
     },
     {
       "name": "Twisted/Moiré TMD",
-      "search_query": "(ti:%22twisted%20TMD%22%20OR%20ti:%22moire%20TMD%22%20OR%20ti:%22twisted%20MoS2%22%20OR%20ti:%22twisted%20WSe2%22)%20AND%20cat:cond-mat.mes-hall",
+      "search_query": "(ti:\"twisted TMD\" OR abs:\"twisted TMD\" OR ti:\"moire TMD\" OR abs:\"moire TMD\" OR ti:\"twisted MoS2\" OR abs:\"twisted MoS2\" OR ti:\"twisted WSe2\" OR abs:\"twisted WSe2\") AND cat:cond-mat.mes-hall",
       "max_results": 5
     },
     {
       "name": "Electron-Phonon Coupling",
-      "search_query": "all:%22electron-phonon%20coupling%22%20AND%20cat:cond-mat.mes-hall",
+      "search_query": "(ti:\"electron-phonon coupling\" OR abs:\"electron-phonon coupling\") AND cat:cond-mat.mes-hall",
       "max_results": 5
     }
   ],
