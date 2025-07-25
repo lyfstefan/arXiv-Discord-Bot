@@ -2,17 +2,17 @@
   "queries": [
     {
       "name": "Twisted Bilayer Graphene",
-      "search_query": "(ti:\"twisted bilayer graphene\" OR abs:\"twisted bilayer graphene\")",
+      "search_query": "ti:\"twisted bilayer graphene\" OR abs:\"twisted bilayer graphene\" AND cat:cond-mat.mes-hall",
       "max_results": 5
     },
     {
       "name": "Moiré Phonons",
-      "search_query": "(ti:\"moire phonon\" OR abs:\"moire phonon\") AND cat:cond-mat.mes-hall",
+      "search_query": "ti:\"moire phonon\" OR abs:\"moire phonon\" AND cat:cond-mat.mes-hall",
       "max_results": 5
     },
     {
       "name": "Twisted/Moiré TMD",
-      "search_query": "(ti:\"twisted TMD\" OR abs:\"twisted TMD\" OR ti:\"moire TMD\" OR abs:\"moire TMD\" OR ti:\"twisted MoS2\" OR abs:\"twisted MoS2\" OR ti:\"twisted WSe2\" OR abs:\"twisted WSe2\") AND cat:cond-mat.mes-hall",
+      "search_query": "(ti:\"twisted TMD\" OR ti:\"moire TMD\" OR ti:\"twisted MoS2\" OR ti:\"twisted WSe2\") AND cat:cond-mat.mes-hall",
       "max_results": 5
     },
     {
