@@ -6,13 +6,18 @@
       "max_results": 5
     },
     {
-      "name": "Moiré Phonons",
+      "name": "Moir\u00e9 Phonons",
       "search_query": "abs%3A%22moire%20phonon%22",
       "max_results": 5
     },
     {
       "name": "Chern Bands",
       "search_query": "all%3A%22chern%20insulator%22%20AND%20cat%3Acond-mat.mes-hall",
+      "max_results": 5
+    },
+    {
+      "name": "Twisted/Moir\u00e9 TMD",
+      "search_query": "all%3A%28twisted%20TMD%20OR%20moire%20TMD%20OR%20twisted%20transition%20metal%20OR%20moire%20transition%20metal%20OR%20twisted%20MoS2%20OR%20twisted%20WSe2%20OR%20twisted%20TMDs%29",
       "max_results": 5
     }
   ],
