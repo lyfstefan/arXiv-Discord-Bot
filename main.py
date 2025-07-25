@@ -35,7 +35,7 @@ def fetch_and_post():
     for q in queries:
         query = q["search_query"]
         name = q["name"]
-        max_results = q.get("max_results", 5)
+        max_results = q.get("max_results", 10)
 
         print(f"📡 Querying: {name}")
         url = f"http://export.arxiv.org/api/query?search_query={query}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
