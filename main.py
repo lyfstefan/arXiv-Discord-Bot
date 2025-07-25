@@ -4,7 +4,8 @@ import os
 import time
 import feedparser
 from pathlib import Path
-from datetime import datetime, timedelta  # For time filtering
+from datetime import datetime, timedelta
+from urllib.parse import quote  
 
 # Load search queries and bot settings
 with open("config.json", "r") as f:
@@ -37,18 +38,18 @@ def fetch_and_post():
         max_results = q.get("max_results", 5)
 
         print(f"📡 Querying: {name}")
-        url = f"http://export.arxiv.org/api/query?search_query={query}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
+        encoded_query = quote(query)
+
+        url = f"http://export.arxiv.org/api/query?search_query={encoded_query}&start=0&max_results={max_results}&sortBy=submittedDate&sortOrder=descending"
         feed = feedparser.parse(url)
 
         for entry in feed.entries:
             entry_id = entry.id.strip()
 
-            # Skip already-posted papers
             if entry_id in sent_ids:
                 print(f"⏩ Skipping already-sent: {entry.title}")
                 continue
 
-            # Skip papers older than 7 days
             published = datetime(*entry.published_parsed[:6])
             if published < cutoff_date:
                 print(f"⏩ Skipping old paper: {entry.title} (published {published})")
