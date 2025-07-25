@@ -1,8 +1,3 @@
-import os
-from pathlib import Path
-
-
-new_main_py = """
 import json
 import requests
 import os
@@ -28,9 +23,10 @@ if not CACHE_FILE.exists():
     CACHE_FILE.write_text("")
 
 sent_ids = set(CACHE_FILE.read_text().splitlines())
+new_ids = []
 
 def fetch_and_post():
-    new_ids = []
+    global new_ids
 
     for q in queries:
         query = q["search_query"]
@@ -53,7 +49,7 @@ def fetch_and_post():
             authors = ", ".join(a.name for a in entry.authors)
             summary = entry.summary[:300] + "..."
 
-            content = f"**📝 {title}**\\n👤 *{authors}*\\n🔗 {link}\\n🗂️ `{name}`"
+            content = f"**📝 {title}**\n👤 *{authors}*\n🔗 {link}\n🗂️ `{name}`"
             payload = {"content": content}
 
             res = requests.post(webhook_url, json=payload)
@@ -66,17 +62,6 @@ def fetch_and_post():
     if new_ids:
         with open(CACHE_FILE, "a") as f:
             for id in new_ids:
-                f.write(id + "\\n")
+                f.write(id + "\n")
 
 fetch_and_post()
-"""
-
-
-output_path = Path("main.py") 
-output_path.parent.mkdir(parents=True, exist_ok=True)
-
-
-with open(output_path, "w", encoding="utf-8") as f:
-    f.write(new_main_py.strip())
-
-print(f"✅ main.py has been written to {output_path.resolve()}")
