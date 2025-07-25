@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+
 new_main_py = """
 import json
 import requests
@@ -70,8 +71,12 @@ def fetch_and_post():
 fetch_and_post()
 """
 
-output_path = "/mnt/data/main.py"
-with open(output_path, "w") as f:
+
+output_path = Path("main.py") 
+output_path.parent.mkdir(parents=True, exist_ok=True)
+
+
+with open(output_path, "w", encoding="utf-8") as f:
     f.write(new_main_py.strip())
 
-output_path
+print(f"✅ main.py has been written to {output_path.resolve()}")
