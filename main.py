@@ -26,8 +26,8 @@ if not CACHE_FILE.exists():
 
 sent_ids = set(CACHE_FILE.read_text().splitlines())
 
-# Only include papers published within the last 7 days
-cutoff_date = datetime.utcnow() - timedelta(days=7)
+# Only include papers published within the last 30 days
+cutoff_date = datetime.utcnow() - timedelta(days=30)
 
 def fetch_and_post():
     new_ids = []
