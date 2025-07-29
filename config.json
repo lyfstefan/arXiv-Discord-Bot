@@ -2,12 +2,12 @@
   "queries": [
     {
       "name": "Twisted Bilayer Graphene",
-      "search_query": "ti:\"twisted bilayer graphene\" OR abs:\"twisted bilayer graphene\" AND cat:cond-mat.*",
+      "search_query": "(ti:\"twisted bilayer graphene\" OR abs:\"twisted bilayer graphene\") AND cat:cond-mat.*",
       "max_results": 10
     },
     {
       "name": "Moiré Phonons",
-      "search_query": "ti:\"moire phonon\" OR abs:\"moire phonon\" AND cat:cond-mat.*",
+      "search_query": "(ti:\"moire phonon\" OR abs:\"moire phonon\") AND cat:cond-mat.*",
       "max_results": 10
     },
     {
@@ -19,12 +19,17 @@
       "name": "Electron-Phonon Coupling",
       "search_query": "(ti:\"electron-phonon coupling\" OR abs:\"electron-phonon coupling\") AND cat:cond-mat.*",
       "max_results": 10
+    },
+    {
+      "name": "Moiré Materials",
+      "search_query": "(ti:\"moire materials\" OR abs:\"moire materials\") AND cat:cond-mat.*",
+      "max_results": 10
     }
   ],
   "watch": {
     "sleep_time": 10800,
     "cooldown": 5,
-    "max_results": 40,
+    "max_results": 50,
     "save_dir": "data/watch",
     "publish_list": []
   }
